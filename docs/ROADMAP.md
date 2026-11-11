@@ -45,9 +45,8 @@ Facts that already hold, stated here so the steps below make sense:
 - Upstream stopped receiving changes in January 2025. On 2026-11-11 the
   maintainer opened upstream #18 asking Speechmatics to point users at this
   fork. No response has been received as of that date.
-- One step below (3.1) is done: the reply on upstream #13 was posted on
-  2026-11-11 from this repository's maintainer account. It carries a
-  progress mark. No other step has shipped yet.
+- Two steps below (1.1 and 3.1) are done and carry progress marks. No other
+  step has shipped yet.
 
 ## Standing items
 
@@ -89,7 +88,22 @@ Correctness and verification come before any new feature. The fork has shipped
 code that should resolve two upstream reports, and the only honest next step is
 to find out whether it does.
 
-### 1.1 Verify Android echo cancellation and playback start on a device — PLANNED
+### 1.1 Verify Android echo cancellation and playback start on a device — Done — verified 2026-11-11 on physical devices
+
+Verified 2026-11-11 by the maintainer during a full voice smoke run
+(Clanker v34.0.1 with the vendored module, then v34.0.2 — the first build
+consuming the npm package 0.2.1 — so the npm configuration itself is what
+passed). Physical iPhone and physical Android phone, backend Gemini Live
+over a local dev cloud-agent: microphone + replies audible, barge-in
+passed with playback stopping and the mic staying live (**no echo
+observed on Android**), call stop/restart clean, background→return clean,
+Siri interruption clean on iOS, and logs free of the failure signatures
+upstream #12 describes (no playback errors, no
+`RejectedExecutionException`, no crashes). Two caveats recorded for
+honesty: the Android version of the test phone was not written down, and
+playback-start crackling was checked by ear during normal conversation
+flow rather than with a dedicated probe. If a user report contradicts
+this, the finding reopens as a bug per the step text below.
 
 Run the test app on a physical Android 13 or newer device. Check whether echo
 cancellation is complete and whether playback starts without crackling. Record
