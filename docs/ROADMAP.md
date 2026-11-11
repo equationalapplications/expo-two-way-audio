@@ -45,7 +45,9 @@ Facts that already hold, stated here so the steps below make sense:
 - Upstream stopped receiving changes in January 2025. On 2026-11-11 the
   maintainer opened upstream #18 asking Speechmatics to point users at this
   fork. No response has been received as of that date.
-- No step below has shipped yet, so no step carries a progress mark.
+- One step below (3.1) is done: the reply on upstream #13 was posted on
+  2026-11-11 from this repository's maintainer account. It carries a
+  progress mark. No other step has shipped yet.
 
 ## Standing items
 
@@ -157,7 +159,17 @@ CHANGELOG 0.2.0 (`bargeIn()`).
 
 **Gate:** none. These can proceed at any time and do not touch native code.
 
-### 3.1 Reply on upstream #13 that the duplicate-tap crash is fixed in the fork — PLANNED
+### 3.1 Reply on upstream #13 that the duplicate-tap crash is fixed in the fork — Done — posted 2026-11-11 on upstream #13
+
+Posted 2026-11-11 (13:49 UTC) from the `equationalapplications` account: the
+crash is fixed in `@equationalapplications/expo-two-way-audio` 0.2.0, with
+the fix mechanism (`setup()` removes any existing audio tap before
+installing one; the media-services reset path refreshes the audio session),
+a pointer to the README migration guide, and the statement that it is a
+maintained fork. Two details from the step text above were not included:
+no link to the GitHub release (the npm package page is linked instead) and
+no named credit to the reporter's approach (the mechanism is described in
+the fork's own terms).
 
 Post a short, courteous reply on upstream #13 saying that the `nullptr ==
 Tap()` crash during audio-session resets is fixed in
